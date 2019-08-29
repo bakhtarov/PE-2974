@@ -5,7 +5,7 @@ module.exports = params => {
   let isBotsExists = true;
 
   const destroyTower = bot => {
-    data.logs = [...data.logs, { ...bot, winner: 0 }];
+    data.logs = [...data.logs, bot];
     isTowerAlive = false;
   };
   const botsDown = () => {
@@ -33,6 +33,7 @@ module.exports = params => {
 
     if (rangeDangerForTower <= 0) {
       destroyTower(botNearTower);
+      data.logs = [...data.logs, { winner: 0 }];
       return;
     }
   };
